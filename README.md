@@ -8,6 +8,62 @@ Built for the **ElevenLabs × Kiro Hackathon** using spec-driven development.
 
 ---
 
+## Quick Start
+
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Build the extension
+
+```bash
+npm run build
+```
+
+This outputs everything Chrome needs into the `dist/` folder.
+
+### 3. Load into Chrome
+
+1. Open Chrome and navigate to `chrome://extensions`
+2. Enable **Developer mode** using the toggle in the top-right corner
+3. Click **Load unpacked**
+4. Select the `dist/` folder inside this project
+5. The Recast 🎭 icon will appear in your Chrome toolbar
+
+> After any code change, run `npm run build` again, then click the **refresh icon** on the Recast card at `chrome://extensions`.
+
+### 4. Add your API keys
+
+Click the **⚙️** icon in the popup:
+
+- **ElevenLabs API key** — required for voice playback → [get one here](https://elevenlabs.io/app/settings/api-keys)
+- **OpenAI API key** — optional; built-in transformations are used if omitted → [get one here](https://platform.openai.com/api-keys)
+
+Keys are saved to `chrome.storage.local` and only ever sent to their respective APIs.
+
+### 5. Test it
+
+**Option A — Context menu (the main feature):**
+1. Go to any webpage and highlight some text
+2. Right-click → **"Recast this text 🎭"**
+3. The popup opens with the text pre-loaded
+4. Pick a mode, click **Transform**, then click **Transformed** to hear it
+
+**Option B — Popup directly:**
+1. Click the Recast icon in the toolbar
+2. Paste text, pick a mode, press `Ctrl+Enter`
+3. Click **Transformed** to play the ElevenLabs voice
+
+**Quick smoke test without API keys:**
+1. Load the extension
+2. Click the icon → click **Example** to load a demo text
+3. Click **Transform** — you should see a transformed result (uses built-in transforms, no API key needed)
+4. Add your ElevenLabs key in ⚙️ Settings to enable voice playback
+
+---
+
 ## Transformation Modes
 
 | Mode | Example |
@@ -20,57 +76,7 @@ Built for the **ElevenLabs × Kiro Hackathon** using spec-driven development.
 
 ---
 
-## Installation
-
-### Load as unpacked extension (Chrome)
-
-1. Clone the repo and install dependencies:
-   ```bash
-   git clone <repository-url>
-   cd recast-vibe-translator
-   npm install
-   ```
-
-2. Build the extension:
-   ```bash
-   npm run build
-   ```
-
-3. Open Chrome and go to `chrome://extensions`
-
-4. Enable **Developer mode** (top right toggle)
-
-5. Click **Load unpacked** and select the `dist/` folder
-
-6. The Recast icon appears in your toolbar — click it to open
-
-### Add your API keys
-
-Click the ⚙️ icon in the popup and enter:
-
-- **ElevenLabs API key** — required for voice playback ([get one here](https://elevenlabs.io/app/settings/api-keys))
-- **OpenAI API key** — optional; uses built-in transformations if omitted ([get one here](https://platform.openai.com/api-keys))
-
-Keys are stored in `chrome.storage.local` and never leave your browser except to call the respective APIs.
-
----
-
-## Usage
-
-**Method 1 — Context menu:**
-1. Highlight any text on a webpage
-2. Right-click → **"Recast this text 🎭"**
-3. The popup opens with the selected text pre-loaded
-4. Choose a mode and click **Transform**
-
-**Method 2 — Popup:**
-1. Click the Recast icon in the toolbar
-2. Paste or type text
-3. Select a transformation mode
-4. Click **Transform** (or press `Ctrl+Enter`)
-5. Click **Transformed** to hear it via ElevenLabs TTS
-
-### Keyboard Shortcuts
+## Keyboard Shortcuts
 
 | Shortcut | Action |
 |----------|--------|
